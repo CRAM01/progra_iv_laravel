@@ -2,7 +2,7 @@
 
 <h1>Editar Producto</h1>
 
-<form method="" action="{{ route('productos.update', $producto->id) }}">
+<form method="POST" action="{{ route('productos.update', $producto->id) }}">
     @csrf
     @method('PUT')
 <table>
@@ -23,13 +23,13 @@
         <td>Estado</td>
         <td>
             <select name="estado" id="estado">
-                @if (($producto -> estado) == true)
-                <option value="false">Inactivo</option>
-                <option value="true" selected>Activo</option>
+                @if (($producto -> estado) == 1)
+                <option value="0">Inactivo</option>
+                <option value="1" selected>Activo</option>
                 @endif
-                @if (($producto->estado)==false)
-                <option value="false" selected>Inactivo</option>
-                <option value="true">Activo</option>
+                @if (($producto->estado)== 0)
+                <option value="0" selected>Inactivo</option>
+                <option value="1">Activo</option>
                 @endif
             </select>
         </td>

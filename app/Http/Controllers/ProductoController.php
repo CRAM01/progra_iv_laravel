@@ -12,6 +12,11 @@ class ProductoController extends Controller
         return view('productos.lista',compact('productos'));
     }
 
+    public function show(Producto $producto)
+    {
+        return view('productos.show', compact('producto'));
+    }
+
     public function create(){
         return view('productos.create');
     }    
