@@ -20,6 +20,17 @@ class ProductoController extends Controller
         Producto::create($request->all());
 
         return redirect()->route('productos.index')->with('success','Producto creado!');
-
     }    
+
+    public function edit($id){
+        $producto = Producto::find($id);
+        return view('productos.edit',compact('producto'));
+    }
+
+    public function update(Request $request, $id){
+        $producto = Producto::find($id);
+        $producto->update($request->all());
+        return redirect()->route('productos.index')->with('success','Producto Editado Correctamente!');
+
+    }
 }
