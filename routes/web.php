@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\PedidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,8 @@ Route::get('/cualquiercosa', function () {
     return view('test');
 });
 
+
+
 Route::resource('productos', ProductoController::class);
+
+Route::resource('pedidos', PedidoController::class)->only(['index', 'store']);
